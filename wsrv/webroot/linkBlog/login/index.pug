@@ -1,0 +1,53 @@
+extends  ../../_part/_baseShell
+
+block head
+	include ../../_part/_header
+
+block main
+	.mui-container-fluid
+		p
+			br
+		.mui-row
+			.mui-col-md-6
+				p Oh hi
+			.mui-col-md-6
+				.mui-panel
+					form.mui-form#frm1(onsubmit='return false')
+						legend Log-in
+						.mui-textfield
+							input(type='text', name='data.user')
+							label eMail
+						.mui-textfield
+							input(type='password', name='data.password')
+							label Password
+						button.mui-btn.mui-btn--raised(type='submit')#login Log-in
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			Cookies.remove('auth')// logout
+
+			TS.loadNX('/linkBlog/login/LoPgBLX.js', onLoadedBL)
+			console.log('x')
+			$('#frm1').jsForm()
+		}//()
+
+		function onLoadedBL() {
+			console.log('loaded')
+			const bl = Minit()
+			bl.init('ll')
+
+			$('#login').on('click', bl.observer('ll'))
+			flyd.on(function(e) {
+				console.log('NAV', e)
+				Cookies.set('auth',e)
+				console.log(Cookies.get('auth'))
+
+				setTimeout(function() {
+					TT.loadPg('/linkBlog/admin/')// let the cookie write
+				},50)
+			}, bl.nav)
+		}//()
+
+block footer
+	include ../../_part/_footer

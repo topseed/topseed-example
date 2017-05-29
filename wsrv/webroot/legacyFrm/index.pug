@@ -1,0 +1,26 @@
+extends  ../_part/_baseShell
+
+block head
+	include ../_part/_header
+
+block main
+	.mui-container-fluid
+		p
+			br
+		.mui-row
+			.mui-col-md-6
+				p Oh hi
+			.mui-col-md-6
+				.mui-panel
+					form.mui-form(action='/legacy')
+						legend Join/Log-in
+						.mui-textfield
+							input(type='text', name='data.userEmail')
+							label eMail
+						.mui-textfield
+							input(type='password', name='data.password')
+							label Password
+						button.mui-btn.mui-btn--raised(type='submit')#login Existing/Log-in
+
+block footer
+	include ../_part/_footer

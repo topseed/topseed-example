@@ -1,0 +1,38 @@
+extends  ../../_part/_baseShell
+
+block head
+	include ../../_part/_header
+
+block main
+	.mui-container-fluid
+		p
+		list-el not yet
+
+	script.
+		TS.onAppReady(UIinit)
+
+		function UIinit() {
+			console.log('.')
+
+			TS.loadComp($('#comps'),'/_webComp/List.html', BLinit) // load UI first
+
+		}//()
+
+		function BLinit() {
+			console.log('x')
+			let el = customElements.get('list-el')
+			if(!el) customElements.define('list-el', ListEl)
+
+			TS.loadNX('/linkBlog/list/LiPgBLX.js', onLoadedBL)
+
+		}//()
+
+		function onLoadedBL() { // last is wire to get data
+			console.log('loaded')
+			const bl = Minit()
+			let le = document.querySelector('list-el')
+			bl.init('list1', le) // Don't send el, send stream name
+		}//()
+	
+block footer
+	include ../../_part/_footer

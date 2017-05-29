@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/_sass/main.css">
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
+    <script src="https://rawgit.com/topseed/topseed-turbo/master/setup/setup-latest.js"></script>
+    <script src="/_js/main.js" async=""></script>
+  </head>
+  <body>
+    <div id="appbar">
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Hello</span></div>
+      <ul id="appbar--menu">
+        <li><a href="/linkBlog/list/">List</a></li>
+        <li><a href="/linkBlog/admin/">Admin</a></li>
+      </ul>
+    </div>
+    <div id="sidedrawer" onclick="closeDrawer()">
+      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Hello</div>
+      <div class="mui-divider"></div>
+      <ul id="sidedrawer--menu">
+        <li><a href="/linkBlog/list/">List</a></li>
+        <li><a href="/linkBlog/login/">Login</a></li>
+        <li><a href="/linkBlog/admin/">Admin</a></li>
+      </ul>
+    </div>
+    <script>
+      function openDrawer(px, e) {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer(e) {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }
+    </script>
+    <div id="content-wrapper">
+      <div class="mui-container-fluid">
+        <p><br></p>
+        <form class="mui-form" id="frm1" onsubmit="return false">
+          <legend>Add link</legend>
+          <div class="mui-textfield">
+            <input type="text" name="data.url">
+            <label>Url</label>
+          </div>
+          <div class="mui-textfield">
+            <input type="text" name="data.head_line">
+            <label>Headline</label>
+          </div>
+          <button class="mui-btn mui-btn--raised" type="submit" id="add">Add</button>
+        </form>
+      </div>
+      <script>
+        TS.onAppReady(UIinit)
+        function UIinit() {
+        	console.log('x')
+        
+        	const auth = Cookies.get('auth')
+        	console.log(':', auth)
+        
+        	TS.loadNX('/linkBlog/admin/APgBMX.js', onLoadedBL)
+        }//()
+        
+        function onLoadedBL() {
+        
+        	console.log('loaded admin')
+        
+        	$('#frm1').jsForm()
+        	const auth = Cookies.get('auth')
+        	const bl = Minit()
+        	if(bl.init('ad', auth)) {
+        
+        		$('#add').on('click', bl.observer('ad'))  // ad inited from here
+        
+        		/*
+        		flyd.on(function(e) {
+        			console.log('NAV', e)
+        			TT.loadPg('/linkBlog/list/')
+        		}, bl.nav)
+        		*/
+        
+        	}
+        }//()
+        
+      </script>
+    </div>
+    <div id="footer">
+      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
+        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
+      </div>
+      <div id="comps"></div>
+    </div>
+  </body>
+</html>

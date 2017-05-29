@@ -1,0 +1,53 @@
+extends  ../../_part/_baseShell
+
+block head
+	include ../../_part/_header
+
+block main
+	.mui-container-fluid
+		p
+			br
+		form.mui-form#frm1(onsubmit='return false')
+			legend Add link
+			.mui-textfield
+				input(type='text', name='data.url')
+				label Url
+			.mui-textfield
+				input(type='text', name='data.head_line')
+				label Headline
+			button.mui-btn.mui-btn--raised(type='submit')#add Add
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+
+			const auth = Cookies.get('auth')
+			console.log(':', auth)
+
+			TS.loadNX('/linkBlog/admin/APgBMX.js', onLoadedBL)
+		}//()
+
+		function onLoadedBL() {
+
+			console.log('loaded admin')
+
+			$('#frm1').jsForm()
+			const auth = Cookies.get('auth')
+			const bl = Minit()
+			if(bl.init('ad', auth)) {
+
+				$('#add').on('click', bl.observer('ad'))  // ad inited from here
+
+				/*
+				flyd.on(function(e) {
+					console.log('NAV', e)
+					TT.loadPg('/linkBlog/list/')
+				}, bl.nav)
+				*/
+
+			}
+		}//()
+	
+block footer
+	include ../../_part/_footer

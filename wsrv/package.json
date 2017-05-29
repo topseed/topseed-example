@@ -1,0 +1,16 @@
+{	"name" : "aa"
+	,"version" : "1.0.0"
+	, "engines": { "npm" : ">=4.6n", "node": ">=7.6" }
+	, "dependencies": { 
+
+		"express": ">=4.1",
+		"compression": ">=1.6.2",
+		"pug": ">=2.0.0-rc.1",
+		"topseed-util": "=1.2.1",
+
+		"server-components": ">=0.2",
+		"dot": ">=1.1",
+		"cheerio": ">=0.22"
+
+	}
+}
