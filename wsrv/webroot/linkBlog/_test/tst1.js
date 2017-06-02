@@ -1,5 +1,5 @@
 'use strict'
-loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
+loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 	success: function(){
 		loadjs([
 			'/_js/BDS.js'
@@ -14,7 +14,7 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 })
 
 
-const ROOT = 'http://localhost:8081/'
+let ROOT = 'http://localhost:8081/'
 function tst1() {
 	// class:
 	class Page1BDS extends BDS {

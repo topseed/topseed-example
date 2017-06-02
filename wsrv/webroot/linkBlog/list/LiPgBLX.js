@@ -2,7 +2,7 @@
 function Minit( ) {// 'closure|module'-iso.
 	console.log('ps list')
 
-	const ROOT = 'http://localhost:8081/'
+	let ROOT = 'http://localhost:8081/'
 	class DS extends BDS {
 		doFetch(data, token) {
 			return BDS.fetch(window.fetch, ROOT, 'linksPg/list', data, token)

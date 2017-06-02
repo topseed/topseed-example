@@ -1,4 +1,7 @@
 'use strict'
+
+let ROOT = 'http://localhost:8081/'
+
 class BDS {
 
 	static fetch(fetch_,ROOT_, url_, data_, jtoken ) {
