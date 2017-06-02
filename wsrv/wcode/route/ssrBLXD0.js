@@ -11,7 +11,7 @@ const tpl =
 `{{~it.array :value:index}}
 	<div>{{=value}}</div>
 {{~}}`
-class BLXAct {
+class sBLX {
 
 	_fetchData() {
 		const data = {'array':['banana','apple','orange']}
@@ -49,4 +49,4 @@ class BLXAct {
 
 }//class
 
-module.exports = BLXAct //node
+module.exports = sBLX //node
