@@ -1,6 +1,6 @@
 {	"name" : "aa"
 	,"version" : "1.0.0"
-	, "engines": { "npm" : ">=4.6n", "node": ">=7.6" }
+	, "engines": { "npm" : ">=5", "node": ">=8" }
 	, "dependencies": { 
 
 		"express": ">=4.1",
