@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Util = require('topseed-util')
 
-const BLXA = require('./ssrBLXA')
+const BLXA = require('./ssrBLX')
 const BL = new BLXA()
 
 const BLXAD0 = require('./ssrBLXD0')

@@ -33,3 +33,21 @@ function libsLoaded(){
 		}
 	})
 }
+
+var Person = Class.extend({
+	init: function(isDancing){
+		this.dancing = isDancing;
+	}
+})
+ 
+var Ninja = Person.extend({
+	init: function(){
+		this._super( false );
+	}
+})
+ 
+var p = new Person(true);
+p.dancing; // => true
+ 
+var n = new Ninja();
+n.dancing; // => false
