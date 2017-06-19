@@ -1,0 +1,18 @@
+{
+	"name": "aa",
+	"version": "1.0.0",
+	"repository": { "type": "git", "url" : "https://github.com/topseed/topseed-example.git"},
+	"license": "SEE LICENSE IN LICENSE.md", 	
+	"engines": {
+		"npm": ">=5",
+		"node": ">=8"
+	},
+	"dependencies": {
+
+		"topseed-util": ">=24.0.0",
+
+		"algoliasearch": ">=3.23"
+
+
+	}
+}
