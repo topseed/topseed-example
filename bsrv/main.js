@@ -1,16 +1,12 @@
 'use strict'
 const express = require('express')
 const bsrv = express()
-const cors = require('cors')
-const compression = require('compression')
 const bodyParser = require('body-parser')
 
 const C = (require('./config/Config'))
 global.bsrvConfig = new C()
 
-bsrv.use(compression())
 bsrv.use(bodyParser.json())
-bsrv.use(cors())
 
 //linkBlg 
 bsrv.use('/linksPg', require('./scode/route/LinksPg')) 
@@ -23,3 +19,22 @@ bsrv.listen(bsrvConfig.PORT, '0.0.0.0', function() {
 	console.log('Press Ctrl+C to quit.')
 })
 
+/*
+var algoliasearch = require('algoliasearch')
+var client = algoliasearch('XO3LSEXN6Y', '21ffff287ac97c39416ddcd54ad74db6')
+var table = client.initIndex('links')
+
+var row = {
+	page: 'image'
+	, headline : 'head'
+	, url : 'http://news.com'
+	, dateTime : 123
+	, tags : ['one', 'two']
+}
+table.addObject(row)
+
+var pro = table.browse()
+pro.then(function(content){
+	console.log(content.hits)
+})
+*/
